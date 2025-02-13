@@ -6,11 +6,11 @@ CREATE OR REPLACE FUNCTION calculate_yearly_reward(
     v_bonus_decimal NUMBER;
 BEGIN
     IF p_monthly_salary IS NULL OR p_bonus_percent IS NULL THEN
-        RAISE_APPLICATION_ERROR(-20001, 'Salary and bonus percent cannot be NULL');
+        RAISE_APPLICATION_ERROR(-20001, 'cannot be NULL');
     END IF;
    
     IF p_monthly_salary < 0 THEN
-        RAISE_APPLICATION_ERROR(-20002, 'Salary cannot be negative');
+        RAISE_APPLICATION_ERROR(-20002, 'cannot be negative');
     END IF;
    
     IF p_bonus_percent < 0 OR p_bonus_percent > 100 THEN

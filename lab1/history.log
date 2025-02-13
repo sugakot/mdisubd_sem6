@@ -30,3 +30,23 @@ dd992bdf-08d7-4b09-afaf-24c9f0fceed2:1739189163584:0:S:SET SERVEROUTPUT ON;
 2700ebd2-6261-4e16-9b2e-f0977d1815ad:1739189164085:0:F:BEGIN\n-- Тест с корректными данными\nDBMS_OUTPUT.PUT_LINE('Yearly reward for salary 50000 and bonus 20%: ' ||\n    calculate_yearly_reward(50000, 20));\n    \n-- Тест с нулевым бонусом\nDBMS_OUTPUT.PUT_LINE('Yearly reward for salary 50000 and bonus 0%: ' ||\n    calculate_yearly_reward(50000, 0));\n    \n-- Тест с некорректными данными (раскомментируйте для проверки)\nDBMS_OUTPUT.PUT_LINE(calculate_yearly_reward(-1000, 20));  -- Отрицательная зарплата\nDBMS_OUTPUT.PUT_LINE(calculate_yearly_reward(1000, 150));  -- Процент больше 100\n-- DBMS_OUTPUT.PUT_LINE(calculate_yearly_reward(NULL, 20));   -- NULL значение\nEND;\n/
 256b903c-33a3-42ca-bf0e-82c68254fb4a:1739189175975:0:S:SET SERVEROUTPUT ON;
 085d8e8d-3a92-4e59-8934-7c5aeb8d1cc4:1739189176504:0:F:BEGIN\n-- Тест с корректными данными\nDBMS_OUTPUT.PUT_LINE('Yearly reward for salary 50000 and bonus 20%: ' ||\n    calculate_yearly_reward(50000, 20));\n    \n-- Тест с нулевым бонусом\nDBMS_OUTPUT.PUT_LINE('Yearly reward for salary 50000 and bonus 0%: ' ||\n    calculate_yearly_reward(50000, 0));\n    \n-- Тест с некорректными данными (раскомментируйте для проверки)\n--DBMS_OUTPUT.PUT_LINE(calculate_yearly_reward(-1000, 20));  -- Отрицательная зарплата\nDBMS_OUTPUT.PUT_LINE(calculate_yearly_reward(1000, 150));  -- Процент больше 100\n-- DBMS_OUTPUT.PUT_LINE(calculate_yearly_reward(NULL, 20));   -- NULL значение\nEND;\n/
+c87024e5-b5ba-4e8e-a16e-0c2f8f3be0b0:1739204931904:0:S:SET SERVEROUTPUT ON;
+90c7b390-fc22-4768-ae4c-7fa63b8c3518:1739204932623:23:S:BEGIN\n    INSERT_INTO_MYTABLE(10001, 10);\nEND;\n/
+d41e3597-14a1-4bf0-8d82-e2a51f09352d:1739205063353:0:S:SET SERVEROUTPUT ON;
+ac12d7b9-4aef-48c0-acae-b2bdae73fe52:1739205075310:0:F:BEGIN\n    DBMS_OUTPUT.PUT_LINE(SHOW_INSERT(-5));\nEND;\nSET SERVEROUTPUT ON;\nBEGIN\n    DBMS_OUTPUT.PUT_LINE(SHOW_INSERT(-5));\nEND;\n/
+e1701316-adb1-4827-9062-22db1308b414:1739205082446:0:S:SET SERVEROUTPUT ON;
+039e6f9a-709d-4c2f-8578-718437364124:1739205082532:30:S:BEGIN\n    DBMS_OUTPUT.PUT_LINE(SHOW_INSERT(-5));\nEND;\n/
+5cf726aa-6bb5-42da-98dc-6624bcdf04b7:1739205212172:185:S:DROP TABLE MyTable;
+2addaa4d-b6cb-4039-9aa3-154f7a0e4a4c:1739205277060:30:S:CREATE TABLE MyTable (\nid NUMBER,\nval NUMBER\n);
+87707daa-127c-4e5e-89d9-6ab74da8fb5b:1739205277949:7:S:BEGIN\n  FOR i IN 1..10 LOOP\nINSERT INTO MyTable (id, val)\nVALUES (\n  i, \n  i\n);\n  END LOOP;\n  COMMIT;\nEND;\n/
+1b7727ec-0ba9-4e10-8828-bb313b809964:1739205288582:49:S:SELECT * FROM MyTable;
+d6c0f9ac-0013-44db-93e3-4c0087840bc4:1739205327988:0:F:check_even_odd_count
+bf0b549b-ded7-4159-98a5-b1d448e372cd:1739205332268:0:F:check_even_odd_count()
+96fcbeff-a825-4587-bc7e-52a0cd94fe7c:1739205354253:0:S:SET SERVEROUTPUT ON;
+17bf0918-d6a7-4699-b88a-9a2133908495:1739205354334:0:F:BEGIN\n    CHECK_EVEN_ODD_COUNT;\nEND;\n/
+0f07e709-cb65-4ef8-8fab-1c0708030e18:1739205380897:0:S:SET SERVEROUTPUT ON;
+f057a4ca-cb0b-4018-a2bd-d5a6c9b9b8e5:1739205380972:0:F:BEGIN\n    CHECK_EVEN_ODD_COUNT();\nEND;\n/
+7b53fa77-8590-4e58-814f-5aa63ff1b261:1739205406995:0:S:SET SERVEROUTPUT ON;
+3141bff0-3254-4303-a5c9-7fdeecb61864:1739205407073:30:S:BEGIN\n    DBMS_OUTPUT.PUT_LINE(CHECK_EVEN_ODD_COUNT());\nEND;\n/
+11c89902-bc9c-4967-9526-a047e383385b:1739205439012:0:S:SET SERVEROUTPUT ON;
+ace3abc7-3522-4c74-a7d4-4bcd34ac2e0d:1739205439089:30:S:BEGIN\n    DBMS_OUTPUT.PUT_LINE(SHOW_INSERT(-5));\nEND;\n/
