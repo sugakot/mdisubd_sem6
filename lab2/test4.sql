@@ -1,0 +1,37 @@
+-- 1. Очищаем таблицы и сбрасываем последовательности
+DELETE FROM STUDENTS;
+DELETE FROM GROUPS;
+DELETE FROM STUDENTS_AUDIT_LOG;
+DROP SEQUENCE students_seq;
+DROP SEQUENCE groups_seq;
+CREATE SEQUENCE students_seq START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE groups_seq START WITH 1 INCREMENT BY 1;
+
+-- 2. Создаем тестовые группы
+INSERT INTO GROUPS (NAME) VALUES ('Group A');
+INSERT INTO GROUPS (NAME) VALUES ('Group B');
+
+-- 3. Тестируем INSERT
+INSERT INTO STUDENTS (NAME, GROUP_ID) VALUES ('John Doe', 1);
+
+-- 4. Тестируем UPDATE
+UPDATE STUDENTS 
+SET GROUP_ID = 2, NAME = 'John Smith'
+WHERE NAME = 'John Doe';
+
+-- 5. Тестируем DELETE
+DELETE FROM STUDENTS WHERE NAME = 'John Smith';
+
+-- 6. Проверяем записи в журнале
+SELECT 
+    LOG_ID,
+    ACTION_TYPE,
+    ACTION_DATE,
+    USER_NAME,
+    STUDENT_ID,
+    OLD_NAME,
+    NEW_NAME,
+    OLD_GROUP_ID,
+    NEW_GROUP_ID
+FROM STUDENTS_AUDIT_LOG
+ORDER BY LOG_ID;
